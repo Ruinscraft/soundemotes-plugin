@@ -13,8 +13,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class SoundEmoteManager {
 
-    private static final String EMOTE_URL = "https://cdn.ruinscraft.com/cinema/media/soundemotes/%s";
-    private static final String EMOTE_LIST_URL = "https://cdn.ruinscraft.com/cinema/media/soundemotes/emotelist.php";
+    private static final String EMOTE_URL = "https://cdn.ruinscraft.com/media/soundemotes/%s";
+    private static final String EMOTE_LIST_URL = "https://cdn.ruinscraft.com/media/soundemotes/emotelist.php";
     private static final JsonParser JSON_PARSER = new JsonParser();
 
     private Map<String, SoundEmote> soundEmotes;
