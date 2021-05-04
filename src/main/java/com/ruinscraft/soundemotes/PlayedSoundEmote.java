@@ -1,39 +1,23 @@
 package com.ruinscraft.soundemotes;
 
+import java.util.UUID;
+
 public class PlayedSoundEmote {
 
     private SoundEmote soundEmote;
-    private String world;
-    private int x;
-    private int y;
-    private int z;
+    private UUID entityId;
 
-    public PlayedSoundEmote(SoundEmote soundEmote, String world, int x, int y, int z) {
+    public PlayedSoundEmote(SoundEmote soundEmote, UUID entityId) {
         this.soundEmote = soundEmote;
-        this.world = world;
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.entityId = entityId;
     }
 
     public SoundEmote getSoundEmote() {
         return soundEmote;
     }
 
-    public String getWorld() {
-        return world;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public int getZ() {
-        return z;
+    public UUID getEntityId() {
+        return entityId;
     }
 
 }

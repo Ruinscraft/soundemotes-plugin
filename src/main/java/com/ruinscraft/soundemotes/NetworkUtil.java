@@ -31,10 +31,7 @@ public class NetworkUtil {
     private static JsonObject serializePlayedSoundEmote(PlayedSoundEmote playedSoundEmote) {
         JsonObject playedSoundEmoteJson = new JsonObject();
         playedSoundEmoteJson.add("sound_emote", serializedSoundEmote(playedSoundEmote.getSoundEmote()));
-        playedSoundEmoteJson.addProperty("world", playedSoundEmote.getWorld());
-        playedSoundEmoteJson.addProperty("x", playedSoundEmote.getX());
-        playedSoundEmoteJson.addProperty("y", playedSoundEmote.getY());
-        playedSoundEmoteJson.addProperty("z", playedSoundEmote.getZ());
+        playedSoundEmoteJson.addProperty("entity_id", playedSoundEmote.getEntityId().toString());
         return playedSoundEmoteJson;
     }
 

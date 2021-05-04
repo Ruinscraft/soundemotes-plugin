@@ -24,11 +24,7 @@ public class ChatListener implements Listener {
         SoundEmote soundEmote = emotesPlugin.getSoundEmoteManager().match(message);
 
         if (soundEmote != null) {
-            String world = player.getLocation().getWorld().getName();
-            int x = player.getLocation().getBlockX();
-            int y = player.getLocation().getBlockY();
-            int z = player.getLocation().getBlockZ();
-            PlayedSoundEmote playedSoundEmote = new PlayedSoundEmote(soundEmote, world, x, y, z);
+            PlayedSoundEmote playedSoundEmote = new PlayedSoundEmote(soundEmote, player.getUniqueId());
 
             for (Player onlinePlayer : emotesPlugin.getServer().getOnlinePlayers()) {
                 NetworkUtil.sendPlayedSoundEmotePacket(emotesPlugin, onlinePlayer, playedSoundEmote);
