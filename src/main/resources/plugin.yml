@@ -5,3 +5,4 @@ api-version: 1.16
 author: royalkingkb
 commands:
   soundemote:
+    description: View available sound emotes

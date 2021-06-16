@@ -1,23 +1,24 @@
 package com.ruinscraft.soundemotes;
 
+import com.ruinscraft.soundemotes.emote.PlayedSoundEmote;
+import com.ruinscraft.soundemotes.emote.SoundEmote;
+import com.ruinscraft.soundemotes.net.NetworkUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class ChatListener implements Listener {
+public class SoundEmoteChatListener implements Listener {
 
-    private SoundEmotesPlugin emotesPlugin;
+    private final SoundEmotesPlugin emotesPlugin;
 
-    public ChatListener(SoundEmotesPlugin emotesPlugin) {
+    public SoundEmoteChatListener(SoundEmotesPlugin emotesPlugin) {
         this.emotesPlugin = emotesPlugin;
     }
 
     @EventHandler
     public void onAsyncChat(AsyncPlayerChatEvent event) {
-        if (event.isCancelled()) {
-            return;
-        }
+        if (event.isCancelled()) return;
 
         Player player = event.getPlayer();
         String message = event.getMessage();

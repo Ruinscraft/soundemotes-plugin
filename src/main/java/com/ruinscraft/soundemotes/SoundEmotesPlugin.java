@@ -1,5 +1,7 @@
 package com.ruinscraft.soundemotes;
 
+import com.ruinscraft.soundemotes.emote.SoundEmoteManager;
+import com.ruinscraft.soundemotes.net.NetworkUtil;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class SoundEmotesPlugin extends JavaPlugin {
@@ -14,7 +16,9 @@ public class SoundEmotesPlugin extends JavaPlugin {
     public void onEnable() {
         soundEmoteManager = new SoundEmoteManager();
         soundEmoteManager.load();
-        getServer().getPluginManager().registerEvents(new ChatListener(this), this);
+
+        getServer().getPluginManager().registerEvents(new SoundEmoteChatListener(this), this);
+
         NetworkUtil.registerChannels(this);
 
         SoundEmoteCommand soundEmoteCommand = new SoundEmoteCommand(this);

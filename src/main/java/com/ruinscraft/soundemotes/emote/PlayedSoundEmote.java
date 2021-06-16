@@ -1,11 +1,11 @@
-package com.ruinscraft.soundemotes;
+package com.ruinscraft.soundemotes.emote;
 
 import java.util.UUID;
 
 public class PlayedSoundEmote {
 
-    private SoundEmote soundEmote;
-    private UUID entityId;
+    private final SoundEmote soundEmote;
+    private final UUID entityId;
 
     public PlayedSoundEmote(SoundEmote soundEmote, UUID entityId) {
         this.soundEmote = soundEmote;

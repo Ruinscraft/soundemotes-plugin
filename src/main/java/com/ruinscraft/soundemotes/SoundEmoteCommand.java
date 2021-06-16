@@ -1,5 +1,6 @@
 package com.ruinscraft.soundemotes;
 
+import com.ruinscraft.soundemotes.emote.SoundEmote;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class SoundEmoteCommand implements CommandExecutor, TabCompleter {
 
-    private SoundEmotesPlugin emotesPlugin;
+    private final SoundEmotesPlugin emotesPlugin;
 
     public SoundEmoteCommand(SoundEmotesPlugin emotesPlugin) {
         this.emotesPlugin = emotesPlugin;
@@ -21,11 +22,9 @@ public class SoundEmoteCommand implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player)) {
+        if (!(sender instanceof Player player)) {
             return false;
         }
-
-        Player player = (Player) sender;
 
         if (args.length < 1) {
             sender.sendMessage(ChatColor.RED + "/" + label + " <sound emote>");

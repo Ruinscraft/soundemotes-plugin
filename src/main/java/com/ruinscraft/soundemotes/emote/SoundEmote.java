@@ -1,9 +1,9 @@
-package com.ruinscraft.soundemotes;
+package com.ruinscraft.soundemotes.emote;
 
 public class SoundEmote {
 
-    private String name;
-    private String url;
+    private final String name;
+    private final String url;
 
     public SoundEmote(String name, String url) {
         this.name = name;

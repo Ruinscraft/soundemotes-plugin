@@ -1,8 +1,9 @@
-package com.ruinscraft.soundemotes;
+package com.ruinscraft.soundemotes.emote;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.ruinscraft.soundemotes.emote.SoundEmote;
 
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -17,14 +18,10 @@ public class SoundEmoteManager {
     private static final String EMOTE_LIST_URL = "https://cdn.ruinscraft.com/media/soundemotes/emotelist.php";
     private static final JsonParser JSON_PARSER = new JsonParser();
 
-    private Map<String, SoundEmote> soundEmotes;
+    private final Map<String, SoundEmote> soundEmotes;
 
     public SoundEmoteManager() {
         soundEmotes = new HashMap<>();
-    }
-
-    public Map<String, SoundEmote> getSoundEmotes() {
-        return soundEmotes;
     }
 
     public Set<String> getSoundEmoteNames() {
@@ -41,8 +38,8 @@ public class SoundEmoteManager {
         return null;
     }
 
-    public synchronized CompletableFuture<Void> load() {
-        return CompletableFuture.runAsync(() -> {
+    public void load() {
+        CompletableFuture.runAsync(() -> {
             try {
                 URL url = new URL(EMOTE_LIST_URL);
 
