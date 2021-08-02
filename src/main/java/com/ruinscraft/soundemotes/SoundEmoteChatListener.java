@@ -20,6 +20,12 @@ public class SoundEmoteChatListener implements Listener {
     public void onAsyncChat(AsyncPlayerChatEvent event) {
         if (event.isCancelled()) return;
 
+        emotesPlugin.getSpamHandler().addMessage(event.getPlayer().getUniqueId());
+
+        if (!emotesPlugin.getSpamHandler().canSendMessage(event.getPlayer().getUniqueId())) {
+            return;
+        }
+
         Player player = event.getPlayer();
         String message = event.getMessage();
         SoundEmote soundEmote = emotesPlugin.getSoundEmoteManager().match(message);
